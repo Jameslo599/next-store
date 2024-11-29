@@ -4,6 +4,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Container from '@/components/global/Container';
 import { EB_Garamond } from 'next/font/google';
 import Providers from './providers';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const ebGaramond = EB_Garamond({
   subsets: ['latin'],
@@ -22,13 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={ebGaramond.className}>
-        <Providers>
-          <Navbar />
-          <Container className="py-20">{children}</Container>
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={ebGaramond.className}>
+          <Providers>
+            <Navbar />
+            <Container className="py-20">{children}</Container>
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
