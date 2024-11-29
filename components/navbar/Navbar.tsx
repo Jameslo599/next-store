@@ -16,7 +16,7 @@ const Navbar = () => {
           {' '}
           <NavSearch />
         </Suspense>
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 items-center justify-end">
           <CartButton />
           <ModeToggle />
           <LinksDropdown />

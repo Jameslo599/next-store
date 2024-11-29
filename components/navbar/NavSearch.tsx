@@ -31,7 +31,7 @@ function NavSearch() {
       type="search"
       placeholder="Search"
       name="firstName"
-      className="max-w-xs dark:bg-muted"
+      className="max-w-xs mx-auto dark:bg-muted"
       onChange={(e) => {
         setSearch(e.target.value);
         handleSearch(e.target.value);

@@ -31,7 +31,7 @@ async function SingleProductPage({ params }: { params: Params }) {
         </div>
         {/* PRODUCT INFO SECOND COL */}
         <div>
-          <div className="flex gap-x-8 items-center">
+          <div className="flex gap-x-4 items-center">
             <h1 className="capitalize text-3xl font-bold">{name}</h1>
             <FavoriteToggleButton productId={id} />
             <ShareButton name={product.name} productId={id} />
