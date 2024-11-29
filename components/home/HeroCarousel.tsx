@@ -6,10 +6,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import hero1 from '@/public/images/hero1.jpg';
-import hero2 from '@/public/images/hero2.jpg';
-import hero3 from '@/public/images/hero3.jpg';
-import hero4 from '@/public/images/hero4.jpg';
+import hero1 from '@/public/images/calendar1.webp';
+import hero2 from '@/public/images/calendar2.webp';
+import hero3 from '@/public/images/calendar3.webp';
+import hero4 from '@/public/images/calendar4.webp';
 import Image from 'next/image';
 
 const carouselImages = [hero1, hero2, hero3, hero4];

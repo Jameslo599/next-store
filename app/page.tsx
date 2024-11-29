@@ -1,5 +1,5 @@
-import Hero from './home/Hero';
-import FeaturedProjects from './home/FeaturedProducts';
+import Hero from '../components/home/Hero';
+import FeaturedProjects from '../components/home/FeaturedProducts';
 import { Suspense } from 'react';
 import LoadingContainer from '@/components/global/LoadingContainer';
 
