@@ -6,9 +6,10 @@ import FavoriteToggleButton from '@/components/products/FavoriteToggleButton';
 import AddToCart from '@/components/single-product/AddToCart';
 import ProductRating from '@/components/single-product/ProductRating';
 
-async function SingleProductPage({ params }: { params: { id: string } }) {
+type Params = Promise<{ id: string }>;
+
+async function SingleProductPage({ params }: { params: Params }) {
   const { id } = await params;
-  console.log(id);
   const product = await fetchSingleProduct(id);
   const { name, image, company, description, price } = product;
   const dollarsAmount = formatCurrency(price);
