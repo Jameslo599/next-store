@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
       <div>
         <h1 className="max-w-2xl font-bold text-4xl tracking-tight sm:text-6xl">
-          Welcome to America's African Violet Store!
+          Welcome to America&apos;s African Violet Store!
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-8 text-muted-foreground">
           We make it easy to find violets and supplies AVSA Store – Offering
