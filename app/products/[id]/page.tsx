@@ -6,11 +6,7 @@ import FavoriteToggleButton from '@/components/products/FavoriteToggleButton';
 import AddToCart from '@/components/single-product/AddToCart';
 import ProductRating from '@/components/single-product/ProductRating';
 
-async function SingleProductPage({
-  params,
-}: {
-  params: { id: string };
-}): Promise<JSX.Element> {
+async function SingleProductPage({ params }: { params: { id: string } }) {
   const param = await params;
   const product = await fetchSingleProduct(param.id);
   const { name, image, company, description, price } = product;
