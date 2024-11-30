@@ -6,8 +6,6 @@ import FormContainer from '../form/FormContainer';
 import { SubmitButton } from '../form/Buttons';
 import { removeCartItemAction, updateCartItemAction } from '@/utils/actions';
 import { useToast } from '../../hooks/use-toast';
-import { Loader2 } from 'lucide-react';
-import { Button } from '../ui/button';
 
 function ThirdColumn({ quantity, id }: { quantity: number; id: string }) {
   const [amount, setAmount] = useState(quantity);
