@@ -5,6 +5,7 @@ import Container from '@/components/global/Container';
 import { EB_Garamond } from 'next/font/google';
 import Providers from './providers';
 import { ClerkProvider } from '@clerk/nextjs';
+import Footer from '@/components/footer/footer';
 
 const ebGaramond = EB_Garamond({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function RootLayout({
           <Providers>
             <Navbar />
             <Container className="py-20">{children}</Container>
+            <Footer />
           </Providers>
         </body>
       </html>

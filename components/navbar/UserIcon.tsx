@@ -6,7 +6,11 @@ async function UserIcon() {
   const profileImage = user?.imageUrl;
   if (profileImage) {
     return (
-      <img src={profileImage} className="w-6 h-6 rounded-full object-cover" />
+      <img
+        src={profileImage}
+        className="w-6 h-6 rounded-full object-cover"
+        alt="user icon"
+      />
     );
   }
   return <LuUser2 className="w-6 h-6 bg-primary rounded-full text-white" />;
