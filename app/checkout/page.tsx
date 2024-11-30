@@ -13,30 +13,54 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
 );
 
-export default function CheckoutPage() {
+function SearchParamsComponent({
+  onParamsLoaded,
+}: {
+  onParamsLoaded: (params: {
+    orderId: string | null;
+    cartId: string | null;
+  }) => void;
+}) {
   const searchParams = useSearchParams();
 
   const orderId = searchParams.get('orderId');
   const cartId = searchParams.get('cartId');
 
+  onParamsLoaded({ orderId, cartId });
+  return null;
+}
+
+export default function CheckoutPage() {
+  const [params, setParams] = React.useState<{
+    orderId: string | null;
+    cartId: string | null;
+  } | null>(null);
+
   const fetchClientSecret = useCallback(async () => {
+    if (!params) return null; //Wait until params are loaded
+    const { orderId, cartId } = params;
+
     // Create a Checkout Session
     const response = await axios.post('/api/payment', {
       orderId: orderId,
       cartId: cartId,
     });
     return response.data.clientSecret;
-  }, []);
+  }, [params]);
 
   const options = { fetchClientSecret };
 
   return (
     <div id="checkout">
-      <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
-        <Suspense fallback={<LoadingContainer />}>
+      <Suspense fallback={<LoadingContainer />}>
+        <SearchParamsComponent onParamsLoaded={setParams} />
+      </Suspense>
+
+      {params && (
+        <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
           <EmbeddedCheckout />
-        </Suspense>
-      </EmbeddedCheckoutProvider>
+        </EmbeddedCheckoutProvider>
+      )}
     </div>
   );
 }
