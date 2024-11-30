@@ -1,7 +1,7 @@
 'use client';
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
-import React, { useCallback } from 'react';
+import React, { Suspense, useCallback } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import {
   EmbeddedCheckoutProvider,
@@ -31,9 +31,11 @@ export default function CheckoutPage() {
 
   return (
     <div id="checkout">
-      <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
-        <EmbeddedCheckout />
-      </EmbeddedCheckoutProvider>
+      <Suspense>
+        <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
+      </Suspense>
     </div>
   );
 }
