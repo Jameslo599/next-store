@@ -7,6 +7,7 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from '@stripe/react-stripe-js';
+import LoadingContainer from '@/components/global/LoadingContainer';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
@@ -30,12 +31,12 @@ export default function CheckoutPage() {
   const options = { fetchClientSecret };
 
   return (
-    <div id="checkout">
-      <Suspense>
+    <Suspense fallback={<LoadingContainer />}>
+      <div id="checkout">
         <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
           <EmbeddedCheckout />
         </EmbeddedCheckoutProvider>
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
